@@ -57,6 +57,16 @@ Shader::~Shader()
 	glDeleteProgram(shaderID);
 }
 
+void Shader::operator=(Shader&& obj)
+{
+	if (this != &obj)
+	{
+		shaderID = obj.shaderID;
+
+		obj.shaderID = 0;
+	}
+}
+
 void Shader::use()
 {
 	glUseProgram(shaderID);

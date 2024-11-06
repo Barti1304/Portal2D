@@ -9,8 +9,10 @@
 class Shader
 {
 public:
+	Shader() = default;
 	Shader(const char* vCode, const char* fCode);
 	~Shader();
+	void operator=(Shader&& obj);
 
 	void use();
 
