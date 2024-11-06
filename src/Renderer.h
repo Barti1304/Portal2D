@@ -23,6 +23,8 @@ public:
 private:
 	static void DynamicViewport(GLFWwindow* window, int width, int height);
 
+	void initVAO();
+
 	GLFWwindow* window = nullptr;
 	unsigned int vao = 0, vbo = 0, ebo = 0;
 };

@@ -17,7 +17,6 @@ void Game::run()
 		this->update();
 		this->render();
 	}
-
 }
 
 void Game::update()
