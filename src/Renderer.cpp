@@ -52,6 +52,13 @@ void Renderer::swapBuffers()
 	glfwSwapBuffers(window);
 }
 
+void Renderer::renderRectangle()
+{
+	mapShaders["default"].use();
+	glBindVertexArray(vao);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+}
+
 GLFWwindow* Renderer::getWindow()
 {
 	return window;

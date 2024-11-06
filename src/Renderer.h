@@ -20,6 +20,10 @@ public:
 	void clearScreen(glm::vec3 color);
 	void swapBuffers();
 
+
+	void renderRectangle();
+
+
 	GLFWwindow* getWindow();
 	bool isStillRunning();
 
