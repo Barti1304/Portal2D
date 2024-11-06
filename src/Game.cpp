@@ -28,5 +28,7 @@ void Game::render()
 {
 	renderer.clearScreen(glm::vec3{ 0.1f, 0.15f, 0.2f });
 
+	renderer.renderRectangle();
+
 	renderer.swapBuffers();
 }
