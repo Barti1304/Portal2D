@@ -2,6 +2,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 #include <iostream>
 
@@ -13,6 +14,7 @@ public:
 
 	void initialize(int wWidth, int wHeight, const char* wTitle);
 
+	void clearScreen(glm::vec3 color);
 	void swapBuffers();
 
 	GLFWwindow* getWindow();

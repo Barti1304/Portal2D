@@ -35,6 +35,12 @@ void Renderer::initialize(int wWidth, int wHeight, const char* wTitle)
 	glfwSetWindowSizeCallback(window, DynamicViewport);
 }
 
+void Renderer::clearScreen(glm::vec3 color)
+{
+	glClearColor(color.r, color.g, color.b, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
 void Renderer::swapBuffers()
 {
 	glfwSwapBuffers(window);
