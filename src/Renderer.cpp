@@ -32,6 +32,7 @@ void Renderer::initialize(int wWidth, int wHeight, const char* wTitle)
 	}
 
 	glfwSwapInterval(1);
+	glfwSetWindowSizeCallback(window, DynamicViewport);
 }
 
 void Renderer::swapBuffers()
@@ -47,5 +48,10 @@ GLFWwindow* Renderer::getWindow()
 bool Renderer::isStillRunning()
 {
 	return !glfwWindowShouldClose(window);
+}
+
+void Renderer::DynamicViewport(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
 }
 

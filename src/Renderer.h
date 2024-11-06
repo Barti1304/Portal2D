@@ -19,6 +19,8 @@ public:
 	bool isStillRunning();
 
 private:
+	static void DynamicViewport(GLFWwindow* window, int width, int height);
+
 	GLFWwindow* window = nullptr;
 	unsigned int vao = 0, vbo = 0, ebo = 0;
 };
