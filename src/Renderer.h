@@ -12,7 +12,7 @@ public:
 	Renderer() = default;
 	~Renderer();
 
-	void initialize(int wWidth, int wHeight, const char* wTitle);
+	void initialize(int wWidth, int wHeight);
 
 	void clearScreen(glm::vec3 color);
 	void swapBuffers();

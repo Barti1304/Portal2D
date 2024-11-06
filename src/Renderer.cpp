@@ -9,14 +9,14 @@ Renderer::~Renderer()
 	glfwDestroyWindow(window);
 }
 
-void Renderer::initialize(int wWidth, int wHeight, const char* wTitle)
+void Renderer::initialize(int wWidth, int wHeight)
 {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	window = glfwCreateWindow(wWidth, wHeight, wTitle, 0, 0);
+	window = glfwCreateWindow(wWidth, wHeight, "Portal2D", 0, 0);
 	if (!window)
 	{
 		std::cerr << "[ERROR] could not open window\n";

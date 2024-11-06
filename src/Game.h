@@ -8,7 +8,7 @@
 class Game
 {
 public:
-	Game(int wWidth, int wHeight, const char* wTitle);
+	Game(int wWidth, int wHeight);
 	~Game();
 
 	void run();

@@ -1,8 +1,8 @@
 #include "Game.h"
 
-Game::Game(int wWidth, int wHeight, const char* wTitle)
+Game::Game(int wWidth, int wHeight)
 {
-	renderer.initialize(wWidth, wHeight, wTitle);
+	renderer.initialize(wWidth, wHeight);
 }
 
 Game::~Game()
