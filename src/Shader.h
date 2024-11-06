@@ -5,12 +5,15 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 class Shader
 {
 public:
 	Shader() = default;
-	Shader(const char* vCode, const char* fCode);
+	Shader(const char* vPath, const char* fPath);
 	~Shader();
 	void operator=(Shader&& obj);
 
