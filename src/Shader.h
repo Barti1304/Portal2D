@@ -14,6 +14,7 @@ class Shader
 public:
 	Shader() = default;
 	Shader(const char* vPath, const char* fPath);
+	Shader(Shader&& obj);
 	~Shader();
 	void operator=(Shader&& obj);
 

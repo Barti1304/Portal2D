@@ -37,6 +37,8 @@ void Renderer::initialize(int wWidth, int wHeight)
 	///
 
 	this->initVAO();
+
+	this->initShaders();
 }
 
 void Renderer::clearScreen(glm::vec3 color)
@@ -94,5 +96,10 @@ void Renderer::initVAO()
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+}
+
+void Renderer::initShaders()
+{
+	mapShaders.insert({ "default", std::move(Shader("shaders/default.vert", "shaders/default.frag")) });
 }
 

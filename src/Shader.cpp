@@ -69,6 +69,16 @@ Shader::Shader(const char* vPath, const char* fPath)
 	}
 }
 
+Shader::Shader(Shader&& obj)
+{
+	if (this != &obj)
+	{
+		shaderID = obj.shaderID;
+
+		obj.shaderID = 0;
+	}
+}
+
 Shader::~Shader()
 {
 	glDeleteProgram(shaderID);
