@@ -6,7 +6,16 @@
 class Camera
 {
 public:
-	Camera(glm::vec2 pos, glm::vec2 sz);
+	Camera() = default;
+	Camera(glm::vec2 pos, glm::vec2 sz, float zm = 1.0f);
+
+	void setPosition(glm::vec2 pos) { position = pos; };
+	void setSize(glm::vec2 sz) { size = sz; };
+	void setZoom(float zm) { zoom = zm; };
+
+	glm::vec2 getPosition() { return position; };
+	glm::vec2 getSize() { return size; };
+	float getZoom() { return zoom; };
 
 	glm::mat4 getViewMatrix();
 	glm::mat4 getProjectionMatrix();
