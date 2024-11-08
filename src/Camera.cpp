@@ -7,6 +7,16 @@ Camera::Camera(glm::vec2 pos, glm::vec2 sz, float zm)
 	zoom = zm;
 }
 
+void Camera::operator=(Camera&& obj)
+{
+	if (this != &obj)
+	{
+		position = obj.position;
+		size = obj.size;
+		zoom = obj.zoom;
+	}
+}
+
 glm::mat4 Camera::getViewMatrix()
 {
 	glm::mat4 view = glm::translate(glm::mat4{ 1.0f }, glm::vec3{ position, 1.0f });

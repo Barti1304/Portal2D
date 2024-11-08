@@ -8,6 +8,7 @@ class Camera
 public:
 	Camera() = default;
 	Camera(glm::vec2 pos, glm::vec2 sz, float zm = 1.0f);
+	void operator=(Camera&& obj);
 
 	void setPosition(glm::vec2 pos) { position = pos; };
 	void setSize(glm::vec2 sz) { size = sz; };
