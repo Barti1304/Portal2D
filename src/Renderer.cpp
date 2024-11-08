@@ -39,6 +39,8 @@ void Renderer::initialize(int wWidth, int wHeight)
 	this->initVAO();
 
 	this->initShaders();
+
+	this->initCamera();
 }
 
 void Renderer::clearScreen(glm::vec3 color)
@@ -52,9 +54,13 @@ void Renderer::swapBuffers()
 	glfwSwapBuffers(window);
 }
 
-void Renderer::renderRectangle()
+void Renderer::renderRectangle(glm::vec2 pos)
 {
-	mapShaders["default"].use();
+	auto& shader = mapShaders["default"];
+	shader.use();
+	shader.setMat4("projview", camera.getProjectionViewMatrix());
+	shader.setMat4("model", glm::translate(glm::mat4{ 1.0f }, glm::vec3{ pos, 1.0f }));
+
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
@@ -108,5 +114,10 @@ void Renderer::initVAO()
 void Renderer::initShaders()
 {
 	mapShaders.insert({ "default", std::move(Shader("shaders/default.vert", "shaders/default.frag")) });
+}
+
+void Renderer::initCamera()
+{
+	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f} };
 }
 

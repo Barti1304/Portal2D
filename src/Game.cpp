@@ -28,7 +28,7 @@ void Game::render()
 {
 	renderer.clearScreen(glm::vec3{ 0.1f, 0.15f, 0.2f });
 
-	renderer.renderRectangle();
+	renderer.renderRectangle(glm::vec2{ glm::sin(glfwGetTime()), glm::cos(glfwGetTime()) });
 
 	renderer.swapBuffers();
 }

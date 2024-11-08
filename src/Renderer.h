@@ -8,6 +8,7 @@
 #include <unordered_map>
 
 #include "Shader.h"
+#include "Camera.h"
 
 class Renderer
 {
@@ -21,18 +22,22 @@ public:
 	void swapBuffers();
 
 
-	void renderRectangle();
+	void renderRectangle(glm::vec2 pos);
 
 
 	GLFWwindow* getWindow();
 	bool isStillRunning();
+
+	const Camera& getCamera() { return camera; };
 
 private:
 	static void DynamicViewport(GLFWwindow* window, int width, int height);
 
 	void initVAO();
 	void initShaders();
+	void initCamera();
 
+	Camera camera;
 	GLFWwindow* window = nullptr;
 	unsigned int vao = 0, vbo = 0, ebo = 0;
 	std::unordered_map<const char*, Shader> mapShaders;

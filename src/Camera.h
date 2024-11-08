@@ -18,8 +18,7 @@ public:
 	glm::vec2 getSize() { return size; };
 	float getZoom() { return zoom; };
 
-	glm::mat4 getViewMatrix();
-	glm::mat4 getProjectionMatrix();
+	glm::mat4 getProjectionViewMatrix();
 
 private:
 	glm::vec2 position;
