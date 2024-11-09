@@ -19,7 +19,7 @@ void Camera::operator=(Camera&& obj)
 
 glm::mat4 Camera::getProjectionViewMatrix()
 {
-	glm::mat4 proj = glm::ortho(-size.x / 2.0f, size.x / 2.0f, -size.y / 2.0f, size.y / 2.0f, -1.0f, 1.0f);
+	glm::mat4 proj = glm::ortho(-size.x / 2.0f / zoom, size.x / 2.0f / zoom, -size.y / 2.0f / zoom, size.y / 2.0f / zoom, -1.0f, 1.0f);
 	glm::mat4 view = glm::translate(glm::mat4{ 1.0f }, glm::vec3{ position, 0.0f });
 
 	return proj * view;

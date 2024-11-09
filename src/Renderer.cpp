@@ -118,6 +118,6 @@ void Renderer::initShaders()
 
 void Renderer::initCamera()
 {
-	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f} };
+	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f}, 2.0f };
 }
 
