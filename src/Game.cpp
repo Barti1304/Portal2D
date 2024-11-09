@@ -22,6 +22,8 @@ void Game::run()
 void Game::update()
 {
 	glfwPollEvents();
+
+	renderer.getCamera().setZoom(glm::cos(glfwGetTime()) * 0.5f + 1.0f);
 }
 
 void Game::render()

@@ -28,7 +28,7 @@ public:
 	GLFWwindow* getWindow();
 	bool isStillRunning();
 
-	const Camera& getCamera() { return camera; };
+	Camera& getCamera() { return camera; };
 
 private:
 	static void DynamicViewport(GLFWwindow* window, int width, int height);
