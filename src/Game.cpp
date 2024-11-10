@@ -34,3 +34,12 @@ void Game::render()
 
 	renderer.swapBuffers();
 }
+
+float Game::getDeltaTime()
+{
+	static float lastTime{}, deltaTime{};
+	deltaTime = glfwGetTime() - lastTime;
+	lastTime = glfwGetTime();
+
+	return deltaTime;
+}

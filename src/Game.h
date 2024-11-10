@@ -14,5 +14,7 @@ private:
 	void update();
 	void render();
 
+	static float getDeltaTime();
+
 	Renderer renderer;
 };
