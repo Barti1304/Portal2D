@@ -1,5 +1,7 @@
 #pragma once
 
+#include <box2d/box2d.h>
+
 class Scene
 {
 public:
@@ -8,5 +10,5 @@ public:
 	void init();
 
 private:
-
-}
+	b2WorldId worldID;
+};
