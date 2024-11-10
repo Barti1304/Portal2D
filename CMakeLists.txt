@@ -10,6 +10,7 @@ file(GLOB_RECURSE SOURCE "src/**.cpp")
 find_package(glfw3 REQUIRED)
 find_package(glad REQUIRED)
 find_package(glm REQUIRED)
+find_package(box2d REQUIRED)
 
 add_executable(Portal2D ${SOURCE})
 set_target_properties(Portal2D PROPERTIES
@@ -20,4 +21,5 @@ target_link_libraries(Portal2D
 	glfw
 	glad::glad
 	glm::glm
+	box2d::box2d
 )
