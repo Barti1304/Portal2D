@@ -15,6 +15,7 @@ private:
 	void render();
 
 	static float getDeltaTime();
+	static int getFPS();
 
 	Renderer renderer;
 };

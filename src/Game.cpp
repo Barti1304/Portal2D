@@ -43,3 +43,8 @@ float Game::getDeltaTime()
 
 	return deltaTime;
 }
+
+int Game::getFPS()
+{
+	return 1.0f / getDeltaTime();
+}
