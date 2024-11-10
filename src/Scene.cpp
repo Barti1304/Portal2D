@@ -1,6 +1,6 @@
 #include "Scene.h"
 
-void Scene::init()
+void Scene::initialize()
 {
 	b2WorldDef worldDef = b2DefaultWorldDef();
 	worldDef.gravity = b2Vec2{ 0.0f, -9.8f };

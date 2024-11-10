@@ -3,6 +3,7 @@
 Game::Game(int wWidth, int wHeight)
 {
 	renderer.initialize(wWidth, wHeight);
+	scene.initialize();
 }
 
 Game::~Game()
@@ -24,6 +25,8 @@ void Game::update()
 	glfwPollEvents();
 
 	renderer.adjustCameraSizeToWindowSize(true);
+
+	scene.updateScene();
 }
 
 void Game::render()

@@ -8,7 +8,7 @@ class Scene
 public:
 	Scene() = default;
 
-	void init();
+	void initialize();
 	void updateScene();
 
 private:

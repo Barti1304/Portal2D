@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Renderer.h"
+#include "Scene.h"
 
 class Game
 {
@@ -18,4 +19,5 @@ private:
 	static int getFPS();
 
 	Renderer renderer;
+	Scene scene;
 };
