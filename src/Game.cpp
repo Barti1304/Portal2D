@@ -23,7 +23,7 @@ void Game::update()
 {
 	glfwPollEvents();
 
-	renderer.adjustCameraSizeToWindowSize();
+	renderer.adjustCameraSizeToWindowSize(true);
 }
 
 void Game::render()

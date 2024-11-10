@@ -75,7 +75,7 @@ bool Renderer::isStillRunning()
 	return !glfwWindowShouldClose(window);
 }
 
-void Renderer::adjustCameraSizeToWindowSize()
+void Renderer::adjustCameraSizeToWindowSize(bool debugOutput)
 {
 	int wWidth{}, wHeight{};
 	glfwGetWindowSize(window, &wWidth, &wHeight);
@@ -92,6 +92,12 @@ void Renderer::adjustCameraSizeToWindowSize()
 	{
 		sWidth = 16.0f;
 		sHeight = 16.0f / ratio;
+	}
+
+	if (debugOutput)
+	{
+		std::cout << "[INFO] Viewport ratio: " << ratio << '\n';
+		std::cout << "[INFO] Camera size: " << sWidth << " x " << sHeight << '\n';
 	}
 
 	this->camera.setSize({ sWidth, sHeight });

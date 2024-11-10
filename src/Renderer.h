@@ -30,7 +30,7 @@ public:
 
 	Camera& getCamera() { return camera; };
 
-	void adjustCameraSizeToWindowSize();
+	void adjustCameraSizeToWindowSize(bool debugOutput = false);
 
 private:
 	static void DynamicViewport(GLFWwindow* window, int width, int height);
