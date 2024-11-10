@@ -1,5 +1,10 @@
 #include "Scene.h"
 
+Scene::~Scene()
+{
+	b2DestroyWorld(worldID);
+}
+
 void Scene::initialize()
 {
 	b2WorldDef worldDef = b2DefaultWorldDef();

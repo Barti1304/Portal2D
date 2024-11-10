@@ -1,12 +1,14 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
 #include <box2d/box2d.h>
+
+#include "Renderer.h"
 
 class Scene
 {
 public:
 	Scene() = default;
+	~Scene();
 
 	void initialize();
 	void updateScene();
