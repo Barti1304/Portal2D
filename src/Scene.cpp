@@ -29,3 +29,8 @@ void Scene::init()
 	cubeShapeDef.friction = 0.3f;
 	b2CreatePolygonShape(cubeID, &cubeShapeDef, &dynamicBox);
 }
+
+void Scene::updateScene()
+{
+	b2World_Step(worldID, 1.0f / 60.0f, 4);
+}
