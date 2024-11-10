@@ -13,6 +13,8 @@ public:
 	void initialize();
 	void updateScene();
 
+	b2WorldId getWorldID() { return worldID; }
+
 private:
 	b2WorldId worldID;
 };
