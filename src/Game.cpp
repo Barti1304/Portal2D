@@ -23,14 +23,14 @@ void Game::update()
 {
 	glfwPollEvents();
 
-	renderer.getCamera().setZoom(glm::cos(glfwGetTime()) * 0.5f + 1.0f);
+	renderer.debugPrintViewportRatio();
 }
 
 void Game::render()
 {
 	renderer.clearScreen(glm::vec3{ 0.1f, 0.15f, 0.2f });
 
-	renderer.renderRectangle(glm::vec2{ glm::sin(glfwGetTime()), glm::cos(glfwGetTime()) });
+	renderer.renderRectangle(glm::vec2{ 0.0f, 0.0f });
 
 	renderer.swapBuffers();
 }

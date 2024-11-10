@@ -75,6 +75,13 @@ bool Renderer::isStillRunning()
 	return !glfwWindowShouldClose(window);
 }
 
+void Renderer::debugPrintViewportRatio()
+{
+	int wWidth{}, wHeight{};
+	glfwGetWindowSize(window, &wWidth, &wHeight);
+	std::cout << "Current viewport ratio: " << (static_cast<float>(wWidth) / static_cast<float>(wHeight)) << '\n';
+}
+
 void Renderer::DynamicViewport(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
@@ -118,6 +125,6 @@ void Renderer::initShaders()
 
 void Renderer::initCamera()
 {
-	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f}, 2.0f };
+	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f}, 1.0f };
 }
 

@@ -30,6 +30,8 @@ public:
 
 	Camera& getCamera() { return camera; };
 
+	void debugPrintViewportRatio();
+
 private:
 	static void DynamicViewport(GLFWwindow* window, int width, int height);
 
