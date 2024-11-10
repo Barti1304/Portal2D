@@ -17,6 +17,15 @@ set_target_properties(Portal2D PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}
 )
 
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	target_link_libraries(Portal2D
+		opengl32
+		gdi32
+	)
+
+	set_target_properties(Portal2D PROPERTIES LINK_FLAGS "--static")
+endif()
+
 target_link_libraries(Portal2D
 	glfw
 	glad::glad
