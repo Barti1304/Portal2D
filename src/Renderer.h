@@ -30,7 +30,6 @@ public:
 
 	Camera& getCamera() { return camera; };
 
-	void debugPrintViewportRatio();
 	void adjustCameraSizeToWindowSize();
 
 private:

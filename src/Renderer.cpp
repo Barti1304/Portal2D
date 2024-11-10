@@ -75,13 +75,6 @@ bool Renderer::isStillRunning()
 	return !glfwWindowShouldClose(window);
 }
 
-void Renderer::debugPrintViewportRatio()
-{
-	int wWidth{}, wHeight{};
-	glfwGetWindowSize(window, &wWidth, &wHeight);
-	std::cout << "Current viewport ratio: " << (static_cast<float>(wWidth) / static_cast<float>(wHeight)) << '\n';
-}
-
 void Renderer::adjustCameraSizeToWindowSize()
 {
 	int wWidth{}, wHeight{};
