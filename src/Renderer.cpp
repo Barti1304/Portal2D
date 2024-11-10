@@ -82,6 +82,28 @@ void Renderer::debugPrintViewportRatio()
 	std::cout << "Current viewport ratio: " << (static_cast<float>(wWidth) / static_cast<float>(wHeight)) << '\n';
 }
 
+void Renderer::adjustCameraSizeToWindowSize()
+{
+	int wWidth{}, wHeight{};
+	glfwGetWindowSize(window, &wWidth, &wHeight);
+
+	float ratio = static_cast<float>(wWidth) / static_cast<float>(wHeight);
+
+	int sWidth{}, sHeight{};
+	if (ratio > 1)
+	{
+		sWidth = ratio * 16.0f;
+		sHeight = 16.0f;
+	}
+	else
+	{
+		sWidth = 16.0f;
+		sHeight = 16.0f / ratio;
+	}
+
+	this->camera.setSize({ sWidth, sHeight });
+}
+
 void Renderer::DynamicViewport(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);

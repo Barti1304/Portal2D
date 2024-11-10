@@ -24,6 +24,7 @@ void Game::update()
 	glfwPollEvents();
 
 	renderer.debugPrintViewportRatio();
+	renderer.adjustCameraSizeToWindowSize();
 }
 
 void Game::render()
