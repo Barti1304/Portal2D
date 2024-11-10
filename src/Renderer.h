@@ -22,7 +22,7 @@ public:
 	void swapBuffers();
 
 
-	void renderRectangle(glm::vec2 pos);
+	void renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, float rotation);
 
 
 	GLFWwindow* getWindow();

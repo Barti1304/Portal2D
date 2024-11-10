@@ -54,12 +54,21 @@ void Renderer::swapBuffers()
 	glfwSwapBuffers(window);
 }
 
-void Renderer::renderRectangle(glm::vec2 pos)
+void Renderer::renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, float rotation)
 {
 	auto& shader = mapShaders["default"];
+
 	shader.use();
+	shader.setVec3("rectangleColor", color);
+
+
+	glm::mat4 model{ glm::translate(glm::mat4{ 1.0f }, glm::vec3{ pos, 1.0f }) };
+	model = glm::scale(model, glm::vec3{ size, 1.0f });
+	model = glm::rotate(model, glm::radians(rotation), glm::vec3{ 0.0f, 0.0f, -1.0f });
+	shader.setMat4("model", model);
+
+
 	shader.setMat4("projview", camera.getProjectionViewMatrix());
-	shader.setMat4("model", glm::translate(glm::mat4{ 1.0f }, glm::vec3{ pos, 1.0f }));
 
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
