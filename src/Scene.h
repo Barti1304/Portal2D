@@ -3,6 +3,7 @@
 #include <box2d/box2d.h>
 
 #include "Renderer.h"
+#include "Physics.h"
 
 class Scene
 {
@@ -13,8 +14,6 @@ public:
 	void initialize();
 	void updateScene();
 
-	b2WorldId getWorldID() { return worldID; }
-
 private:
-	b2WorldId worldID;
+	Physics physics;
 };

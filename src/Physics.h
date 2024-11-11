@@ -10,6 +10,10 @@ public:
 	Physics() = default;
 	~Physics();
 
+	void initialize();
+
+	void update();
+
 	b2WorldId getWorldID() { return worldID; }
 
 private:
