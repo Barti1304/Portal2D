@@ -30,7 +30,7 @@ void Physics::update()
 	b2World_Step(worldID, 1.0f / 60.0f, 4);
 }
 
-b2BodyId Physics::createPhysicsBody(glm::vec2 pos, glm::vec2 size, float rotation, b2BodyType type)
+b2BodyId Physics::createBody(glm::vec2 pos, glm::vec2 size, float rotation, b2BodyType type)
 {
 	b2BodyDef bodyDef = b2DefaultBodyDef();
 	bodyDef.type = type;

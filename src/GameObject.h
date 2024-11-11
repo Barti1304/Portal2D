@@ -7,9 +7,9 @@ class GameObject
 {
 public:
 	GameObject(b2BodyId bID);
-	virtual ~GameObject() = 0;
+	virtual ~GameObject() {};
 
-	virtual void update() = 0;
+	virtual void update() {};
 
 
 	b2BodyId getBodyID();

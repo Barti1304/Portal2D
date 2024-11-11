@@ -8,6 +8,8 @@ Scene::~Scene()
 void Scene::initialize()
 {
 	physics.initialize();
+
+	this->addGameObject(new Platform(physics.createBody({ 0.0f,-5.0f }, { 5.0f, 1.0f }, 0.0f)), "floor");
 }
 
 void Scene::updateScene()

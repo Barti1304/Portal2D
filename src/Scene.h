@@ -4,6 +4,7 @@
 
 #include "Physics.h"
 #include "GameObject.h"
+#include "Platform.h"
 
 #include <iostream>
 #include <unordered_map>
