@@ -33,7 +33,7 @@ void Game::render()
 {
 	renderer.clearScreen(glm::vec3{ 0.1f, 0.15f, 0.2f });
 
-	renderer.renderRectangle({ 0.25f, 1.0f, 0.5f }, { glm::sin(glfwGetTime()) * 2.5f, glm::cos(glfwGetTime()) * 2.5f }, { 3.0f, 3.0f }, glm::sin(glfwGetTime()) * 180.0f);
+	renderer.renderScene(&scene);
 
 	renderer.swapBuffers();
 }

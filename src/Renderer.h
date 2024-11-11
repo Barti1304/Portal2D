@@ -9,6 +9,7 @@
 
 #include "Shader.h"
 #include "Camera.h"
+#include "Scene.h"
 
 class Renderer
 {
@@ -23,6 +24,7 @@ public:
 
 
 	void renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, float rotation);
+	void renderScene(Scene* scene);
 
 
 	GLFWwindow* getWindow();

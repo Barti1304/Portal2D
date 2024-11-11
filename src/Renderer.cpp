@@ -74,6 +74,11 @@ void Renderer::renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, f
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 
+void Renderer::renderScene(Scene* scene)
+{
+
+}
+
 GLFWwindow* Renderer::getWindow()
 {
 	return window;

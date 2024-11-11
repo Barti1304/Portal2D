@@ -2,10 +2,10 @@
 
 #include <box2d/box2d.h>
 
-#include "Renderer.h"
 #include "Physics.h"
 #include "GameObject.h"
 
+#include <iostream>
 #include <unordered_map>
 
 class Scene
