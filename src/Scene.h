@@ -4,6 +4,9 @@
 
 #include "Renderer.h"
 #include "Physics.h"
+#include "GameObject.h"
+
+#include <unordered_map>
 
 class Scene
 {
@@ -14,6 +17,9 @@ public:
 	void initialize();
 	void updateScene();
 
+	void addGameObject(GameObject* gameObj, const char* ID);
+
 private:
 	Physics physics;
+	std::unordered_map<const char*, GameObject*> mapGameObjects;
 };
