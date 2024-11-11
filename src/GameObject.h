@@ -6,9 +6,8 @@ class GameObject
 {
 public:
 	GameObject() = default;
-	virtual ~GameObject();
+	virtual ~GameObject() = 0;
 
 private:
-	static unsigned int IDcounter;
-	unsigned int objectID;
+	const char* objectID;
 };
