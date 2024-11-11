@@ -13,16 +13,6 @@ void Physics::initialize()
 
 	///
 
-	b2BodyDef groundBodyDef = b2DefaultBodyDef();
-	groundBodyDef.position = b2Vec2{ 0.0f, -5.0f };
-	b2BodyId groundID = b2CreateBody(worldID, &groundBodyDef);
-
-	b2Polygon groundBox = b2MakeBox(5.0f, 0.5f);
-	b2ShapeDef groundShapeDef = b2DefaultShapeDef();
-	b2CreatePolygonShape(groundID, &groundShapeDef, &groundBox);
-
-	///
-
 	b2BodyDef cubeDef = b2DefaultBodyDef();
 	cubeDef.type = b2_dynamicBody;
 	cubeDef.position = b2Vec2{ 0.0f, 5.0f };
@@ -38,4 +28,18 @@ void Physics::initialize()
 void Physics::update()
 {
 	b2World_Step(worldID, 1.0f / 60.0f, 4);
+}
+
+b2BodyId Physics::createPhysicsBody(glm::vec2 pos, glm::vec2 size, float rotation, b2BodyType type)
+{
+	b2BodyDef bodyDef = b2DefaultBodyDef();
+	bodyDef.type = type;
+	bodyDef.position = b2Vec2{ pos.x, pos.y };
+	b2BodyId bodyID = b2CreateBody(worldID, &bodyDef);
+
+	b2Polygon poly = b2MakeBox(size.x * 0.5f, size.y * 0.5f);
+	b2ShapeDef shapeDef = b2DefaultShapeDef();
+	b2CreatePolygonShape(bodyID, &shapeDef, &poly);
+
+	return bodyID;
 }

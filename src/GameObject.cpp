@@ -5,6 +5,8 @@ void GameObject::setBodyID(b2BodyId ID)
 	bodyID = ID;
 }
 
+GameObject::GameObject(b2BodyId bID) : bodyID{ bID } {}
+
 b2BodyId GameObject::getBodyID()
 {
 	return bodyID;
@@ -25,8 +27,7 @@ glm::vec2 GameObject::getSize()
 	float width = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[1])));
 	float height = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[2])));
 
-	glm::vec2 size{};
-
+	return glm::vec2{ width, height };
 }
 
 float GameObject::getRotation()

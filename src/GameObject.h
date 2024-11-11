@@ -6,12 +6,11 @@
 class GameObject
 {
 public:
-	GameObject() = default;
+	GameObject(b2BodyId bID);
 	virtual ~GameObject() = 0;
 
 	virtual void update() = 0;
 
-	void setBodyID(b2BodyId ID);
 
 	b2BodyId getBodyID();
 	glm::vec2 getPosition();
@@ -20,5 +19,7 @@ public:
 
 protected:
 	const char* objectID;
+
+	void setBodyID(b2BodyId ID);
 	b2BodyId bodyID;
 };
