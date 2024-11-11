@@ -14,7 +14,7 @@ public:
 	void initialize();
 	void update();
 
-	b2BodyId createBody(glm::vec2 pos, glm::vec2 size, float rotation, b2BodyType type = b2_staticBody);
+	b2BodyId createBody(glm::vec2 pos, glm::vec2 size, float rot, b2BodyType type = b2_staticBody);
 
 	b2WorldId getWorldID() { return worldID; }
 

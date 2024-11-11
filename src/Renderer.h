@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
+#include <box2d/box2d.h>
 
 #include <iostream>
 #include <unordered_map>

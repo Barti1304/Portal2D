@@ -64,7 +64,7 @@ void Renderer::renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, f
 
 	glm::mat4 model{ glm::translate(glm::mat4{ 1.0f }, glm::vec3{ pos, 1.0f }) };
 	model = glm::scale(model, glm::vec3{ size, 1.0f });
-	model = glm::rotate(model, glm::radians(rotation), glm::vec3{ 0.0f, 0.0f, -1.0f });
+	model = glm::rotate(model, rotation, glm::vec3{ 0.0f, 0.0f, 1.0f });
 	shader.setMat4("model", model);
 
 
@@ -76,7 +76,26 @@ void Renderer::renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, f
 
 void Renderer::renderScene(Scene* scene)
 {
+	for (auto it = scene->begin(); it != scene->end(); it++)
+	{
+		b2BodyId bodyID = it->second->getBodyID();
 
+		glm::vec2 pos{};
+		pos.x = b2Body_GetPosition(bodyID).x;
+		pos.y = b2Body_GetPosition(bodyID).y;
+
+		b2ShapeId shapeID;
+		b2Body_GetShapes(bodyID, &shapeID, 1);
+		b2Polygon poly = b2Shape_GetPolygon(shapeID);
+
+		glm::vec2 size{};
+		size.x = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[1])));
+		size.y = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[3])));
+
+		float rot = b2Rot_GetAngle(b2Body_GetRotation(bodyID));
+
+		this->renderRectangle({ 0.85f, 0.85f, 0.85f }, pos, size, rot);
+	}
 }
 
 GLFWwindow* Renderer::getWindow()

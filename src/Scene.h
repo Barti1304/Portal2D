@@ -18,9 +18,18 @@ public:
 	void initialize();
 	void updateScene();
 
-	void addGameObject(GameObject* gameObj, const char* ID);
+	int getGameObjectsCount() { return mapGameObjects.size(); }
+
+	void addGameObject(GameObject* gameObj);
+
+	GameObject* operator[](unsigned int ID) const;
+
+	std::unordered_map<unsigned int, GameObject*>::iterator begin() { return mapGameObjects.begin(); }
+	std::unordered_map<unsigned int, GameObject*>::iterator end() { return mapGameObjects.end(); }
 
 private:
+	static unsigned int IDcounter;
+
 	Physics physics;
-	std::unordered_map<const char*, GameObject*> mapGameObjects;
+	std::unordered_map<unsigned int, GameObject*> mapGameObjects;
 };
