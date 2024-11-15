@@ -79,21 +79,11 @@ void Renderer::renderScene(Scene* scene)
 	auto gameObjReg = scene->getGameObjectRegistry();
 	for (auto it = gameObjReg->begin(); it != gameObjReg->end(); it++)
 	{
-		b2BodyId bodyID = it->second->getBodyID();
+		auto gameObj = it->second;
 
-		glm::vec2 pos{};
-		pos.x = b2Body_GetPosition(bodyID).x;
-		pos.y = b2Body_GetPosition(bodyID).y;
-
-		b2ShapeId shapeID;
-		b2Body_GetShapes(bodyID, &shapeID, 1);
-		b2Polygon poly = b2Shape_GetPolygon(shapeID);
-
-		glm::vec2 size{};
-		size.x = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[1])));
-		size.y = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[3])));
-
-		float rot = b2Rot_GetAngle(b2Body_GetRotation(bodyID));
+		glm::vec2 pos = gameObj->getPosition();
+		glm::vec2 size = gameObj->getSize();
+		float rot = gameObj->getRotation();
 
 		this->renderRectangle({ 0.85f, 0.85f, 0.85f }, pos, size, rot);
 	}

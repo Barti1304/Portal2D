@@ -25,7 +25,7 @@ glm::vec2 GameObject::getSize()
 	b2Polygon poly = b2Shape_GetPolygon(shapeID);
 
 	float width = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[1])));
-	float height = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[2])));
+	float height = glm::abs(b2Length(b2Sub(poly.vertices[0], poly.vertices[3])));
 
 	return glm::vec2{ width, height };
 }
