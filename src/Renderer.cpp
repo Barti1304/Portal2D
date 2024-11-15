@@ -76,7 +76,8 @@ void Renderer::renderRectangle(glm::vec3 color, glm::vec2 pos, glm::vec2 size, f
 
 void Renderer::renderScene(Scene* scene)
 {
-	for (auto it = scene->begin(); it != scene->end(); it++)
+	auto gameObjReg = scene->getGameObjectRegistry();
+	for (auto it = gameObjReg->begin(); it != gameObjReg->end(); it++)
 	{
 		b2BodyId bodyID = it->second->getBodyID();
 

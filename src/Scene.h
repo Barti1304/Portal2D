@@ -5,6 +5,7 @@
 #include "Physics.h"
 #include "GameObject.h"
 #include "Platform.h"
+#include "GameObjectRegistry.h"
 
 #include <iostream>
 #include <unordered_map>
@@ -19,18 +20,13 @@ public:
 	void initialize();
 	void updateScene();
 
-	int getGameObjectsCount() { return mapGameObjects.size(); }
+	void loadTestScene();
 
-	void addGameObject(GameObject* gameObj);
-
-	GameObject* operator[](const std::string& ID) const;
-
-	std::unordered_map<std::string, GameObject*>::iterator begin() { return mapGameObjects.begin(); }
-	std::unordered_map<std::string, GameObject*>::iterator end() { return mapGameObjects.end(); }
+	const GameObjectRegistry* const getGameObjectRegistry() const { return &gameObjectRegistry; };
 
 private:
 	static unsigned int IDcounter;
 
 	Physics physics;
-	std::unordered_map<std::string, GameObject*> mapGameObjects;
+	GameObjectRegistry gameObjectRegistry;
 };
