@@ -11,8 +11,9 @@ public:
 
 	virtual void update() {};
 
+	void setPosition(glm::vec2 pos);
 
-	b2BodyId getBodyID();
+	b2BodyId getBodyID() { return bodyID; }
 	glm::vec2 getPosition();
 	glm::vec2 getSize();
 	float getRotation();

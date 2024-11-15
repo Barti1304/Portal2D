@@ -7,9 +7,9 @@ void GameObject::setBodyID(b2BodyId ID)
 
 GameObject::GameObject(b2BodyId bID) : bodyID{ bID } {}
 
-b2BodyId GameObject::getBodyID()
+void GameObject::setPosition(glm::vec2 pos)
 {
-	return bodyID;
+	b2Body_SetTransform(bodyID, b2Vec2{ pos.x, pos.y }, b2Body_GetRotation(bodyID));
 }
 
 glm::vec2 GameObject::getPosition()
