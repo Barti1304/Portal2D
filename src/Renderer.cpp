@@ -105,18 +105,8 @@ void Renderer::adjustCameraSizeToWindowSize(bool debugOutput)
 	glfwGetWindowSize(window, &wWidth, &wHeight);
 
 	float ratio = static_cast<float>(wWidth) / static_cast<float>(wHeight);
-
-	int sWidth{}, sHeight{};
-	if (ratio > 1)
-	{
-		sWidth = ratio * 16.0f;
-		sHeight = 16.0f;
-	}
-	else
-	{
-		sWidth = 16.0f;
-		sHeight = 16.0f / ratio;
-	}
+	int sWidth = (ratio > 1) ? (ratio * 16.0f) : (16.0f);
+	int sHeight = (ratio > 1) ? (16.0f) : (16.0f / ratio);
 
 	if (debugOutput)
 	{
@@ -170,6 +160,6 @@ void Renderer::initShaders()
 
 void Renderer::initCamera()
 {
-	camera = Camera{ glm::vec2{0.0f, 0.0f}, {8.0f, 6.0f}, 1.0f };
+	camera = Camera{ {0.0f, 0.0f}, {8.0f, 6.0f}, 1.0f };
 }
 
