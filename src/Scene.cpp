@@ -26,10 +26,13 @@ void Scene::updateScene()
 
 void Scene::addGameObject(GameObject* gameObj)
 {
-	mapGameObjects.insert({ IDcounter++, gameObj });
+	std::string tempID{ "obj_" };
+	tempID.append(std::to_string(IDcounter++));
+
+	mapGameObjects.insert({ tempID.c_str(), gameObj });
 }
 
-GameObject* Scene::operator[](unsigned int ID) const
+GameObject* Scene::operator[](const std::string& ID) const
 {
 	return mapGameObjects.at(ID);
 }

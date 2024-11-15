@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <unordered_map>
+#include <string>
 
 class Scene
 {
@@ -22,14 +23,14 @@ public:
 
 	void addGameObject(GameObject* gameObj);
 
-	GameObject* operator[](unsigned int ID) const;
+	GameObject* operator[](const std::string& ID) const;
 
-	std::unordered_map<unsigned int, GameObject*>::iterator begin() { return mapGameObjects.begin(); }
-	std::unordered_map<unsigned int, GameObject*>::iterator end() { return mapGameObjects.end(); }
+	std::unordered_map<std::string, GameObject*>::iterator begin() { return mapGameObjects.begin(); }
+	std::unordered_map<std::string, GameObject*>::iterator end() { return mapGameObjects.end(); }
 
 private:
 	static unsigned int IDcounter;
 
 	Physics physics;
-	std::unordered_map<unsigned int, GameObject*> mapGameObjects;
+	std::unordered_map<std::string, GameObject*> mapGameObjects;
 };
