@@ -24,7 +24,7 @@ void Game::update()
 {
 	glfwPollEvents();
 
-	renderer.adjustCameraSizeToWindowSize(true);
+	renderer.adjustCameraSizeToWindowSize();
 
 	scene.updateScene();
 }
