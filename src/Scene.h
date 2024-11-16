@@ -27,6 +27,9 @@ public:
 private:
 	static unsigned int IDcounter;
 
+	void addPlatform(glm::vec2 pos, glm::vec2 size, float rot);
+	void addCube(glm::vec2 pos, float rot);
+
 	Physics physics;
 	GameObjectRegistry gameObjectRegistry;
 };
