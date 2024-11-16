@@ -13,10 +13,6 @@ public:
 	GameObjectRegistry() = default;
 	~GameObjectRegistry();
 
-	void initialize(Physics* physics);
-
-	void loadTestScene();
-
 	void addGameObject(GameObject* gameObj);
 
 	GameObject* operator[](const std::string& ID) const { return mapGameObjects.at(ID); }
